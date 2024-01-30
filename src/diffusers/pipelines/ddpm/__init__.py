@@ -6,10 +6,12 @@ from ...utils import (
 )
 
 
-_import_structure = {"pipeline_ddpm": ["DDPMPipeline"]}
+_import_structure = {"pipeline_ddpm": ["DDPMPipeline"],
+                     "pipeline_ddpm_cond": ["DDPMCondPipeline","DDPMCondPipeline2"]}
 
 if TYPE_CHECKING or DIFFUSERS_SLOW_IMPORT:
     from .pipeline_ddpm import DDPMPipeline
+    from .pipeline_ddpm_cond import DDPMCondPipeline,DDPMCondPipeline2
 
 else:
     import sys
