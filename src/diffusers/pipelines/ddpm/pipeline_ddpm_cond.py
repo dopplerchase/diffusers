@@ -190,7 +190,7 @@ class DDPMCondPipeline2(DiffusionPipeline):
             model_input_images = torch.concatenate([image,conditioning],axis=1)
             
             #2 predict noise model_output
-            model_output = self.unet(model_input_images, t, conditioning).sample
+            model_output = self.unet(model_input_images, t).sample
 
             #3 compute previous image: x_t -> x_t-1 from just the noisy image and the model output
             image = self.scheduler.step(model_output, t, image, generator=generator).prev_sample
